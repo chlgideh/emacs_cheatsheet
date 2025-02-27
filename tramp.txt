@@ -6,7 +6,7 @@ vim의 netrw, vim-rsync, vim-fugitive와 유사함. (nvim에는 rclone)
 > 다만 vim의 확장 기능들은 모든 파일을 로컬에 마운트했다가 저장하는 시점에 재업로드 하는 방식인 반면, emacs tramp는 버퍼에 작성하다가 즉시 넘기는 방식. 대용량 파일일수록 tramp가 유리함.
 
 사용 예시
-C-x C-f /ssh:user@remote_host#port_num:directory/path:
+C-x C-f /ssh:user@remote_host#port_num:directory/path
 
 기존 파일 찾기인 C-x C-f에 직접 입력하면 작동
 
