@@ -1,0 +1,15 @@
+emacs shell feature
+
+emacs의 쉘 기능 요약.
+
+M-x shell
+쉘 버퍼 생성.
+
+M-x eshell
+emacs-shell 버퍼 실행. > lisp 및 emacs 명령어 사용 가능. 근데 그래서 Ctrl-c 명령어가 충돌이 생긴다.
+
+M-x term
+내 터미널(로컬의 bash 혹은 설정된 것.)을 직접 애뮬레이팅.
+
+M-x ansi-term
+ansi 컬러로 커스터마이징 되어있으면, 그걸 포함해서 보여주는 terminal 애뮬레이터 실행.
