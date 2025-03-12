@@ -1,0 +1,18 @@
+emacs dired useage
+
+  dired : C-x d
+    파일 접근 기능.
+
+파일 복사 (cp)	C (dired-do-copy)
+파일 이동/이름 변경 (mv)	R (dired-do-rename)
+여러 개 파일 선택 후 복사/이동	m → C or R
+디렉토리 생성 (mkdir)	+ (dired-create-directory)
+파일 삭제 (rm)	D (dired-do-delete)
+파일 검색 (grep, find)	A (dired-do-search)
+파일 압축/해제	Z (dired-do-compress)
+심볼릭 링크 생성 (ln -s)	S (dired-do-symlink)
+
+    tramp를 통해 원격 접속한 서버와 로컬 간에도 완전히 동일하게 적용 가능.
+    가령, tramp를 통한 ssh 접속 이후, dired로 원격 디렉토리를 열고
+      바로 옆에 로컬 dired를 분할로 열어서 명령어를 그대로 사용하여 파일 전송 가능.
+    
