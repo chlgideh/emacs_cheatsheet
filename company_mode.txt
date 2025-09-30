@@ -1,0 +1,26 @@
+자동 완성 기능을 사용할 때 다음과 같은 문제가 일어날 수 있음
+
+tab 키의 기능이 먹통
+혹은
+의도치 않은 indentation 간격.
+
+이는 자동완성 기능이 tab키의 기능을 전역에서 덮어써서 생기는 문제이므로 다음과 같은 해결법을 참조.
+
+C-h k <key> : <key>의 현재 기능 확인(활성화된 모드에 따라 표시가 다름)
+
+(define-key company-active-map (kbd "TAB") nil) ;; company의 전역 키 바인딩 무력화 (tab 키의 기능 제거. 기본적으로 자동완성 툴팁의 항목 넘기기와 선택된 항목을 완성하는 키로 바인딩 되어있음.)
+(setq-default tab-always-indent t) ;; 전역 tab키 인덴테이션 모드 명시적 활성화
+(global-set-key (kbd "TAB") 'indent-for-tab-command) ;; 전역 tab 키의 인덴테이션 활성화
+
+(global-set-key (kbd "TAB") 'self-insert-command) ;; 이 명령어 또한 탭 키의 기능을 활성화 시키지만 기능적으로 다름
+
+indent-for-tab-command ;; 탭 키의 기능 활성화 (공백 삽입)
+self-insert-command ;; 탭 키의 기능 활성화 (\t 삽입)
+
+문제는, self-insert-command로 기능을 살릴 경우, 의도치 않은 들여쓰기가 생길 수 있음. 단순히 \t를 삽입하는 것이기 때문에 emacs의 언어 모드에 따라 간격이 다를 수 있기 때문.
+
+indent-for-tab-command로 기능을 정상적으로 되살릴 경우, emacs의 default indentation 기능이 살아남. 이때 emacs는 '적절한' 들여쓰기를 시도하므로 아무것도 없는 라인에서 탭키는 무반응일 수 있음
+
+즉, 들여쓰기가 '필요한' 곳에서만 작동함.
+
+단 txt 파일 등 단순 문자 파일에서는 탭키의 기능 그대로 사용됨. 모드에 따라 다름.
